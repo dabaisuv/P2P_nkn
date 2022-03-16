@@ -5,7 +5,7 @@ const client = nkn({
 function init() {
 
   clientAddr = document.querySelector("#clientAddr");
-  clientAddr.textContent = "我的地址：" + client.addr;
+  clientAddr.textContent = "My address：" + client.addr;
   client.on('connect', () => {
     console.log('Connection opened.');
   });
@@ -14,7 +14,7 @@ function init() {
     if (payloadType === nkn.PayloadType.TEXT) {
       revData = document.querySelector("#revData");
       let curDate = new Date();
-      revData.append(curDate.toLocaleString() + "\n" +"对方地址：" + src + "\n" + "收到信息："  + payload + "\n\n");
+      revData.append(curDate.toLocaleString() + "\n" +"Destination：" + src + "\n" + "Receive message："  + payload + "\n\n");
     }
 
   });
@@ -27,7 +27,7 @@ function sendData() {
   revData = document.querySelector("#revData");
   client.send(sAddr.value, sData.value,);
   let curDate = new Date();
-  revData.append(curDate.toLocaleString() + "\n" +"成功发送到对方地址：" + src + "\n\n");
+  revData.append(curDate.toLocaleString() + "\n" +"Successfully sent to：" + src + "\n\n");
 }
 
 init();
