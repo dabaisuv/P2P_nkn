@@ -11,14 +11,17 @@ html{
 
 
 
-#sendButton{
+.sendButton{
   width:fit-content;
   height: auto;
   font-size: 50px;
+  margin-left: 20px;
+  margin-right: 0px;
   color: darkorange;
+  display: inline-block;
 }
 
-#sendButton:hover{
+.sendButton:hover{
   color: hsl(56, 22%, 15%);
 }
 
@@ -35,7 +38,7 @@ html{
 }
 
 #sData{
-  width: 100%;
+  width: 60%;
   height: 50%;
   margin-top: 20px;
   border: 2px solid yellowgreen;
