@@ -1,5 +1,6 @@
 const client = nkn({
   responseTimeout: 5, // in seconds
+  tls: false
 });
 
 function init() {
