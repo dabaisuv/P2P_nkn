@@ -1,0 +1,42 @@
+html{
+  background-color: blanchedalmond;
+}
+
+#sAddr{
+  width: 80%;
+  border: 2px solid rgb(101, 217, 238);
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+#sData{
+  width: 100%;
+  height: 220px;
+  margin-top: 20px;
+  border: 2px solid yellowgreen;
+  font-size: 20px;
+}
+
+#sendButton{
+  width:fit-content;
+  height: auto;
+  font-size: 50px;
+  color: darkorange;
+}
+
+#sendButton:hover{
+  color: hsl(56, 22%, 15%);
+}
+
+#revData{
+  border: 2px solid rgb(24, 24, 3);
+  width: 100%;
+  height: 220px;
+  font-size: 20px;
+  margin-top: 20px;
+  word-break: break-all;
+  overflow: auto;
+  white-space: pre-wrap;
+
+}
+
