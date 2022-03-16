@@ -4,7 +4,7 @@ const client = nkn({
 function init() {
 
   clientAddr = document.querySelector("#clientAddr");
-  clientAddr.textContent = "My address：" + client.addr;
+  clientAddr.textContent = "My address: " + client.addr;
   client.on('connect', () => {
     console.log('Connection opened.');
   });
