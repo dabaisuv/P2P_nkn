@@ -3,13 +3,11 @@ const sAddr = document.querySelector("#sAddr"); //send to address
 const sData = document.querySelector("#sData"); //message to be sent
 const fileAddr = document.querySelector("#fileAddr"); //file to be sent
 const clientAddr = document.querySelector("#clientAddr"); //local address
+const numSubClients = 4;
+const sessionConfig = { mtu: 16000 };
 
 
-
-const client = new nkn.MultiClient({
-  numSubClients: 4,
-  originalClient: false,
-});
+const client = new nkn.MultiClient({ numSubClients, sessionConfig, tls: false });
 
 function displayLog(content) {
   console.log(content);
