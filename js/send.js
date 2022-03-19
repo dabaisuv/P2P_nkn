@@ -1,27 +1,50 @@
-function sendData() {
-    client.send(sAddr.value,
-        sData.value,
-    ).then(() => {
-        let curDate = new Date();
-        revData.append(curDate.toLocaleString() + "\n" + "Send massage successfully!" + "\n\n");
-    }).catch((e) => {
-        console.log(e)
-    });
+async function sendData() {
+    try{
+        await client.send(sAddr.value,sData.value);
+        displayLog(`Send message successfully!`)
+    }
+    catch(e){
+        console.log(e);
+    }
 } //send message
 
 
-function sendFile() {
+async function sendFile() {
+    if (!sAddr) {
+        alert("Please enter receiver's address");
+        return;
+    }
+
     let file = fileAddr.files[0];
-    let fr = new FileReader();
-    fr.onload = function (event) {
-        client.dial(sAddr.value).then((session) => {
-            session.write((new Uint8Array(event.target.result))).then(() => {
-                console.log("Write successfully!");
-            })
-            
-        }).catch((e) => {
-            console.log(e);
-        });
-    };
-    fr.readAsArrayBuffer(file);
+    if (!file) {
+        alert("Please select file to send");
+        return;
+    }
+
+    let session = await client.dial(sAddr);
+    session.setLinger(-1);
+    console.log(session.localAddr, 'dialed a session to', session.remoteAddr);
+
+    let fileNameEncoded = new TextEncoder().encode(file.name);
+    await writeUint32(session, fileNameEncoded.length);
+    await session.write(fileNameEncoded);
+    await writeUint32(session, file.size);
+
+    displayLog(`Start sending ${file.name} (${file.size} bytes) to ${session.remoteAddr}`);
+
+    let uploadStream = webStreams.toWebReadableStream(fileReaderStream(file));
+    let sessionStream = session.getWritableStream(true);
+    let timeStart = Date.now();
+    uploadStream.pipeTo(sessionStream).then(() => {
+        displayLog(`Finish sending file ${file.name} (${file.size} bytes, ${file.size / (1 << 20) / (Date.now() - timeStart) * 1000} MB/s)`);
+    }, console.error);
 } //send file
+
+
+async function writeUint32(session, n) {
+    let buffer = new ArrayBuffer(4);
+    let dv = new DataView(buffer);
+    dv.setUint32(0, n, true);
+    await session.write(new Uint8Array(buffer));
+}
+
