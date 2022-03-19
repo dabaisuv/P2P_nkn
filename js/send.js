@@ -21,7 +21,7 @@ async function sendFile() {
         return;
     }
 
-    let session = await client.dial(sAddr);
+    let session = await client.dial(sAddr.value);
     session.setLinger(-1);
     console.log(session.localAddr, 'dialed a session to', session.remoteAddr);
 
@@ -32,7 +32,7 @@ async function sendFile() {
 
     displayLog(`Start sending ${file.name} (${file.size} bytes) to ${session.remoteAddr}`);
 
-    let uploadStream = webStreams.toWebReadableStream(fileReaderStream(file));
+    let uploadStream = file.stream();
     let sessionStream = session.getWritableStream(true);
     let timeStart = Date.now();
     uploadStream.pipeTo(sessionStream).then(() => {
