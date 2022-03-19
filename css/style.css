@@ -50,3 +50,7 @@ html{
   height: 500px;
 }
 
+#clientAddr{
+  width: auto;
+  word-break: break-all;
+}
