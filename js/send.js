@@ -1,4 +1,13 @@
 async function sendData() {
+    if (!sAddr.value) {
+        alert("Please enter receiver's address");
+        return;
+    }
+    if(!sData.value)
+    {
+        alert("Please enter message to be sent.")
+        return;
+    }
     try{
         await client.send(sAddr.value,sData.value);
         displayLog(`Send message successfully!`)
@@ -10,14 +19,14 @@ async function sendData() {
 
 
 async function sendFile() {
-    if (!sAddr) {
-        alert("Please enter receiver's address");
+    if (!sAddr.value) {
+        alert("Please enter receiver's address.");
         return;
     }
 
     let file = fileAddr.files[0];
     if (!file) {
-        alert("Please select file to send");
+        alert("Please select file to send.");
         return;
     }
 
