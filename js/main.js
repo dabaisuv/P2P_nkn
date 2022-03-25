@@ -20,6 +20,10 @@ function displayLog(content) {
   revData.appendChild(li);
 }
 
+function clearMessages(){
+  revData.textContent = "";
+}
+
 client.onConnect(() => {
   displayLog(`Successfully connected to nkn network!`);
   clientAddr.textContent = client.addr;  //Show local address on the label
