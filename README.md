@@ -8,5 +8,4 @@ A simple peer-to-peer communication project based on NKN (nkn.org).
 3. Web pages will automatically receive messages and files.
 
 Demo: [http://p2p.ooooooooo.io/](http://p2p.ooooooooo.io/ "http://p2p.ooooooooo.io/")
-[![](https://github.com/dabaisuv/P2P/blob/main/screenshot.png?raw=true)](https://github.com/dabaisuv/P2P/blob/main/screenshot.png?raw=true)
-
+[![](https://github.com/dabaisuv/P2P/blob/main/screenshot.png?raw=true)](http://p2p.ooooooooo.io/)
