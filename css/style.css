@@ -1,56 +1,84 @@
-html{
-  background-color: blanchedalmond;
+html {
+  /* background-color:whitesmoke; */
+  user-select: none;
+  background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
 }
 
-#sAddr{
+#sAddr {
   width: 80%;
   border: 2px solid rgb(101, 217, 238);
   font-size: 15px;
-  margin-top: 20px;
+  margin-top: 5px;
+  user-select: text;
 }
 
-
-
-.sendButton{
-  width:fit-content;
-  height: auto;
-  font-size: 50px;
-  margin-left: 20px;
-  margin-right: 0px;
-  color: darkorange;
-  display: inline-block;
+#fileAddr {
+  border: 2px solid rgb(22, 122, 189);
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  top: 0px;
 }
 
-.sendButton:hover{
+.sendButton {
+  width: fit-content;
+  padding: 3px;
+  cursor: pointer;
+  font-size: large;
+  color: black;
+  background-color: rgba(202, 20, 20, 0.24);
+  border-radius: 8px;
+  vertical-align: middle;
+}
+
+.sendButton:hover {
   color: hsl(56, 22%, 15%);
+  background-color: darkseagreen;
 }
 
-#revData{
-  border: 2px solid rgb(24, 24, 3);
-  width: 100%;
-  height: 50%;
-  font-size: 20px;
-  margin-top: 20px;
-  word-break: break-all;
-  overflow: auto;
-  white-space: pre-wrap;
-
+.sendButton:active {
+  background-color: rgb(220, 200, 20);
 }
 
-#sData{
-  width: 60%;
-  height: 50%;
+#revData {
+  text-align: left;
+}
+
+#sData {
+  vertical-align: middle;
   margin-top: 20px;
   border: 2px solid yellowgreen;
   font-size: 20px;
+  user-select: text;
 }
 
-#dataDiv{
-  width: 100%;
-  height: 500px;
+label {
+  color: white;
+  font-size: large;
+  padding: 3px;
+  background-color: rgba(212, 12, 55, 0.459);
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
 }
 
-#clientAddr{
+#clientAddr {
   width: auto;
   word-break: break-all;
+  border: 2px solid skyblue;
+  line-height: 2;
+  user-select: text;
+}
+
+div {
+  margin: 5px;
+  text-align: center;
+}
+
+li {
+  border: 2px solid palevioletred;
+  border-left: 0px;
+  margin-bottom: 5px;
+  white-space: pre-wrap;
+  user-select: text;
 }

@@ -12,11 +12,16 @@ const client = new nkn.MultiClient({ numSubClients, sessionConfig, tls: false })
 function displayLog(content) {
   console.log(content);
   let curDate = new Date();
-  revData.append(curDate.toLocaleString() + "\n" + content + "\n\n");
+  let li = document.createElement("li");
+  let label = document.createElement("label");
+  label.textContent = curDate.toLocaleString() + ": ";
+  li.appendChild(label);
+  li.append("\n" + content);
+  revData.appendChild(li);
 }
 
 client.onConnect(() => {
   displayLog(`Successfully connected to nkn network!`);
-  clientAddr.textContent = "Local address: " + client.addr;  //Show local address on the label
+  clientAddr.textContent = client.addr;  //Show local address on the label
 }); //After connecting to the nkn network.
 
